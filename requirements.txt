@@ -6,3 +6,4 @@ matplotlib
 scipy
 yfinance
 seaborn
+ta

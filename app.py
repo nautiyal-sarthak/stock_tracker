@@ -19,6 +19,15 @@ def style_bollinger_high(df):
 
     return df.style.applymap(color_gradient, subset=['Bollinger High %'])
 
+# Define a function to apply the style
+def highlight_blue(s):
+    return ['color: blue' if col in ['Put Strike Price', 'Put Premium', 'Put Delta'] else '' for col in s.index]
+
+# Define a function to apply the style
+def highlight_red(s):
+    return ['color: red' if col in ['Call Strike Price', 'Call Premium', 'Call Delta'] else '' for col in s.index]
+
+
 
 def main():
     st.set_page_config(layout="wide")  # Set the page layout to wide mode
@@ -61,12 +70,12 @@ def main():
                 "Bollinger Low %": low_percentage,
                 "200-day MA": indicators["200-day MA"],
                 "Evaluation": evaluation,
-                "Put Strike Price": put_strike_price,
-                "Call Strike Price": call_strike_price,
                 "Expiration Date": expiration_date,
+                "Put Strike Price": put_strike_price,
                 "Put Premium": put_premium,
-                "Call Premium": call_premium,
                 "Put Delta": put_delta,
+                "Call Strike Price": call_strike_price,
+                "Call Premium": call_premium,
                 "Call Delta": call_delta
             }
             results.append(result)
@@ -78,7 +87,7 @@ def main():
         cmap_rsi = sns.diverging_palette(250, 10, as_cmap=True)
 
         # Apply the gradient to the RSI column
-        styled_df = df.style.background_gradient(cmap=cmap_rsi, subset=['RSI','Bollinger High %', 'Bollinger Low %'])
+        styled_df = df.style.background_gradient(cmap=cmap_rsi, subset=['RSI','Bollinger High %', 'Bollinger Low %']).apply(highlight_blue, axis=1).apply(highlight_red, axis=1) 
         
 
         st.dataframe(styled_df, height=800)  # Adjust the height as needed to fit all rows

@@ -45,8 +45,8 @@ def main():
     # Multi-choice input for ticker symbols
     tickers = st.multiselect(
         "Select Ticker Symbols",
-        options=["AAPL", "PLTR", "GOOGL", "MSFT", "SHOP", "RKLB", "SOFI", "SPY", "NVDA", "NIO", "TSLA", "IONQ", "ASTS", "TMDX", "ENVX", "DOCN", "EOSE", "LMND", "AMZN", "AXON", "ALAB"],  # Add more options as needed
-        default=["AAPL", "PLTR", "GOOGL", "MSFT", "SHOP", "RKLB", "SOFI", "SPY", "NVDA", "NIO", "TSLA", "IONQ", "ASTS", "TMDX", "ENVX", "DOCN", "EOSE", "LMND", "AMZN", "AXON", "ALAB"]
+        options=["AAPL", "PLTR", "GOOGL", "MSFT", "SHOP", "RKLB", "SOFI", "SPY", "NVDA", "NIO", "TSLA", "IONQ", "ASTS", "TMDX", "ENVX", "DOCN", "EOSE", "LMND", "AMZN", "AXON", "ALAB","SOUN"],  # Add more options as needed
+        default=["AAPL", "PLTR", "GOOGL", "MSFT", "SHOP", "RKLB", "SOFI", "SPY", "NVDA", "NIO", "TSLA", "IONQ", "ASTS", "TMDX", "ENVX", "DOCN", "EOSE", "LMND", "AMZN", "AXON", "ALAB","SOUN"],
     )
 
     if tickers:
